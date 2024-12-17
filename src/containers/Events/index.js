@@ -22,7 +22,9 @@ const EventList = () => {
       (currentPage - 1) * PER_PAGE <= index &&
       PER_PAGE * currentPage > index
     ) {
-      return true;
+      if (!type || event.type === type) {
+        return true;
+      }
     }
     return false;
   });
