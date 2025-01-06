@@ -13,7 +13,9 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {last} = useData()
+  const { data } = useData();
+  const last = data ? data.events.sort((a, b) => new Date(b.date) - new Date(a.date) && b.id - a.id)[0] : [];
+
   return <>
     <header>
       <Menu />
